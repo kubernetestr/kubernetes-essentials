@@ -20,3 +20,7 @@ References<br />
 [6] https://github.com/kubernetes/kubernetes/issues/24925 *:))))* Mind Blowing CPU Shares<br />
 [7] https://www.kernel.org/doc/Documentation/cgroup-v1/cgroups.txt<br />
 [8] https://0xax.gitbooks.io/linux-insides/content/Cgroups/cgroups1.html<br />
+
+
+Slack</br>
+https://join.slack.com/t/kubernetestr-linkplus/shared_invite/enQtMjkwNjAwNzAyNjg4LTFiMjA0Y2YzNjE3NjRiMzY2OGE2MGNkMzA3ZWIzYmVkYmQ1Nzk0NDkzOWMwZjRiNzMzYTI2NTkxZTNhMTU3MGI
