@@ -1,13 +1,13 @@
 # kubernetes-samples
 Step by step kubernetes samples from beginner to advanced
 
-#Installation
-kubectl + minikube
-https://kubernetes.io/docs/tasks/tools/install-minikube/
+#Installation<br />
+kubectl + minikube<br />
+https://kubernetes.io/docs/tasks/tools/install-minikube/<br />
 
 	
 
-References
+References<br />
 [1] https://www.slideshare.net/Docker/containerd-the-universal-container-runtime<br />
 [2] https://rominirani.com/tutorial-getting-started-with-kubernetes-on-your-windows-laptop-with-minikube-3269b54a226<br />
 [3] https://github.com/jamiehannaford/what-happens-when-k8s<br />
