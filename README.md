@@ -6,6 +6,8 @@ kubectl + minikube<br />
 https://kubernetes.io/docs/tasks/tools/install-minikube/<br />
 
 	
+Books
+[Up and Running kubernetes]https://www.amazon.com/Kubernetes-Running-Dive-Future-Infrastructure/dp/1491935677
 
 References<br />
 [1] https://www.slideshare.net/Docker/containerd-the-universal-container-runtime<br />
