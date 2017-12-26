@@ -1,0 +1,46 @@
+#no chance
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  labels:
+    app: kuard
+    version: 1.0.0
+  name: kuard
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "kuard"
+      version: "1.0.0"
+  template:
+    metadata:
+      labels:
+        app: kuard
+        version: "1.0.0"  
+    spec:
+      volumes:
+        - name: "kuard-data"
+          hostPath:
+            path: /var/lib/kuard
+      containers:
+      - image: gcr.io/kuar-demo/kuard-amd64:1
+        imagePullPolicy: IfNotPresent
+        name: kuard
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "128Mi"
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+        volumeMounts:
+          - mountPath: "/data"
+            name: "kuard-data"  
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        resources: {}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always

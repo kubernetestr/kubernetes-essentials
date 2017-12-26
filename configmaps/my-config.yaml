@@ -1,0 +1,17 @@
+apiVersion: v1
+data:
+  log4j.xml: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n<!DOCTYPE log4j:configuration
+    SYSTEM \"log4j.dtd\">\r\n<log4j:configuration debug=\"true\"\r\n\txmlns:log4j='http://jakarta.apache.org/log4j/'>\r\n\r\n\t<appender
+    name=\"console\" class=\"org.apache.log4j.ConsoleAppender\">\r\n\t    <layout
+    class=\"org.apache.log4j.PatternLayout\">\r\n\t\t<param name=\"ConversionPattern\"\r\n\t\t
+    \ value=\"%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n\" />\r\n\t    </layout>\r\n\t</appender>\r\n\r\n\t<root>\r\n\t\t<level
+    value=\"DEBUG\" />\r\n\t\t<appender-ref ref=\"console\" />\r\n\t</root>\r\n\r\n</log4j:configuration>"
+  my-config.txt: "name=pamir\r\nsurname=erdem\r\nbestfriend=nazli"
+kind: ConfigMap
+metadata:
+  creationTimestamp: 2017-12-23T16:20:54Z
+  name: my-config
+  namespace: default
+  resourceVersion: "346218"
+  selfLink: /api/v1/namespaces/default/configmaps/my-config
+  uid: 3fbdac81-e7fd-11e7-a281-08002754b872

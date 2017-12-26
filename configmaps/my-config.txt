@@ -1,0 +1,3 @@
+name=pamir
+surname=erdem
+bestfriend=habil

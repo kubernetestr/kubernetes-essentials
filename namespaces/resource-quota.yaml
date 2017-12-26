@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: quota
+spec:
+  hard:
+    cpu: "20"
+    memory: 1Gi
+    pods: "1"
+    replicationcontrollers: "1"
+    resourcequotas: "1"
+    services: "1"
