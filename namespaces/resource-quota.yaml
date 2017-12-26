@@ -7,6 +7,6 @@ spec:
     cpu: "20"
     memory: 1Gi
     pods: "1"
-    replicationcontrollers: "1"
-    resourcequotas: "1"
-    services: "1"
+    replicationcontrollers: "2"
+    resourcequotas: "2"
+    services: "2"

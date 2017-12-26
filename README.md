@@ -22,5 +22,3 @@ References<br />
 [8] https://0xax.gitbooks.io/linux-insides/content/Cgroups/cgroups1.html<br />
 
 
-Slack</br>
-https://join.slack.com/t/kubernetestr-linkplus/shared_invite/enQtMjkwNjAwNzAyNjg4LTFiMjA0Y2YzNjE3NjRiMzY2OGE2MGNkMzA3ZWIzYmVkYmQ1Nzk0NDkzOWMwZjRiNzMzYTI2NTkxZTNhMTU3MGI
