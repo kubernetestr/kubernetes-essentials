@@ -13,11 +13,11 @@ spec:
     name: kuard
     resources:
       requests:
-        cpu: "500m"
         memory: "128Mi"
+        cpu: "500m"
       limits:
-        cpu: "1000m"
-        memory: "1024Mi"
+        memory: "128Mi"
+        cpu: "500m"
     ports:
     - containerPort: 8080
       name: http

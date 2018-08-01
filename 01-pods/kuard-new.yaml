@@ -4,13 +4,13 @@ metadata:
   labels:
     run: kuard
     name: kuard
-    internalVersion: 0.0.2
-  name: kuard
+    internalVersion: 0.0.3
+  name: kuardnew
 spec:
   containers:
   - image: gcr.io/kuar-demo/kuard-amd64:1
     imagePullPolicy: IfNotPresent
-    name: kuard
+    name: kuardnew
     ports:
     - containerPort: 8080
       name: http
