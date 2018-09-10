@@ -18,13 +18,57 @@ kubectl get pods
 kubectl rolling-update nginx --rollback
 
 
+kubectl delete rc nginx
 
 ## End Deprecated
 
-
-
+# ReplicationSet
 
 kubectl apply -f 02-replicationset.yaml
 kubectl get events -w
 kubectl get rs -w
 kubectl apply -f 02-1.rs-pod.yaml
+
+#Deployments
+
+kubectl apply -f 03-deployment.yaml
+kubectl apply -f 03.01-deployment.yaml 
+kubectl rollout history deploy/frontend
+kubectl rollout undo deploy/frontend --to-revision=1
+
+# recording deployment
+kubectl apply -f 03.01-deployment.yaml --record
+kubectl apply -f 03.02-deployment.yaml --record
+kubectl apply -f 03.01-deployment.yaml --record
+kubectl rollout history deploy/frontend
+kubectl rollout undo deploy/frontend --to-revision=1
+kubectl rollout history deploy/frontend --revision=8 
+#what is changed from the previos version
+
+
+
+# deployment internals
+kubectl get rs
+kubectl get rs frontend-788d978f9b -o yaml | grep hash  
+# pod-template-hash: kismina bak. Burayi her deployment rs in podTemplate i alip hashleyerek koyar
+
+kubectl set image deployment/frontend php-redis=gcr.io/google_samples/gb-frontend:v2
+kubectl rollout history deploy/frontend
+kubectl set image deployment/frontend php-redis=gcr.io/google_samples/gb-frontend:v1 --record
+kubectl rollout history deploy/frontend
+kubectl edit deployment frontend --record
+kubectl rollout undo deploy/frontend --to-revision=5
+
+
+# deployment parameters
+kubectl scale deployment fronted --replicas=10
+
+#chnage maxSurge
+kubectl apply -f 04-deployment.yaml
+#change maxUnavailable
+kubectl apply -f 04.01-deployment.yaml
+
+#change strategy type to recreate
+kubectl get pods 
+
+
