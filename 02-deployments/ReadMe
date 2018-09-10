@@ -1,3 +1,29 @@
+kubectl create -f 01-replication-controller.yaml
+kubectl get rc
+kubectl describe rc nginx
+kubectl delete rc nginx --cascade=false
+kubectl get pods
+kubectl delete pod nginx-xxxx
+kubectl get pods
+kubectl create -f 01-replication-controller.yaml 
+
+# Deprecated
+
+kubectl rolling-update nginx nginx-v2 --image=nginx:1.8.1
+kubectl get pods
+kubectl get rc -w
+
+kubectl rolling-update nginx --image=nginx:xyz
+kubectl get pods
+kubectl rolling-update nginx --rollback
+
+
+
+## End Deprecated
+
+
+
+
 kubectl apply -f 02-replicationset.yaml
 kubectl get events -w
 kubectl get rs -w
