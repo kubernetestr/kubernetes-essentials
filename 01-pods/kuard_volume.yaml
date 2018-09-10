@@ -10,7 +10,7 @@ spec:
   volumes:
     - name: "kuard-data"
       hostPath:
-        path: /var/lib/kuard
+        path: /var/lib
   containers:
   - image: gcr.io/kuar-demo/kuard-amd64:1
     imagePullPolicy: IfNotPresent

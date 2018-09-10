@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configpod
+spec:
+  containers:
+  - name: config-pod
+    image: nginx
+    env:
+    - name: LOG_LOCATION
+      valueFrom:
+        configMapKeyRef:
+          name: logging
+          key: log.location
+    - name: LOGGING_TYPE
+      valueFrom:
+        configMapKeyRef:
+          name: logging
+          key: log.type
+    - name: LOGGING_ENABLED
+      valueFrom:
+        configMapKeyRef:
+          name: logging
+          key: log.enabled

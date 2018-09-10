@@ -1,15 +1,10 @@
-apiVersion: apps/v1
+apiVersion: "apps/v1beta1"
 kind: StatefulSet
 metadata:
   name: cassandra
-  labels:
-    app: cassandra
 spec:
   serviceName: cassandra
   replicas: 3
-  selector:
-    matchLabels:
-      app: cassandra
   template:
     metadata:
       labels:
@@ -82,18 +77,8 @@ spec:
   volumeClaimTemplates:
   - metadata:
       name: cassandra-data
-      annotations:
-        volume.beta.kubernetes.io/storage-class: fast
     spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 1Gi
----
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: fast
-provisioner: k8s.io/minikube-hostpath
-parameters:
-  type: pd-ssd
+          storage: 10Gi

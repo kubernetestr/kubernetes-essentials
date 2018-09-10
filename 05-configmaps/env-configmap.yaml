@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  log.enabled: "1"
+  log.type: "debug"
+  log.location: "file"
+kind: ConfigMap
+metadata:
+  name: logging

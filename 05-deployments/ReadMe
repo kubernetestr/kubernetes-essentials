@@ -1,0 +1,4 @@
+kubectl apply -f 02-replicationset.yaml
+kubectl get events -w
+kubectl get rs -w
+kubectl apply -f 02-1.rs-pod.yaml
