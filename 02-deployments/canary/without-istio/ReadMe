@@ -1,0 +1,16 @@
+kubectl create ns canary
+kubectl apply -f app-v1.yaml
+
+ kubectl run --restart=Never --image=raesene/alpine-nettools nettools
+ kubectl exec -it nettools -- /bin/sh
+ 
+ while true; do curl http://my-app.canary; done
+
+ kubectl apply -f app-v2.yaml
+
+kubectl scale deployment my-app-v2 -n canary --replicas=10 
+kubectl scale deployment my-app-v1 -n canary  --replicas=0
+kubectl get pods -n canary
+
+
+ kubectl delete ns canary
