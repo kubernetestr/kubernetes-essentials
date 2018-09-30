@@ -16,3 +16,13 @@ route show
 ```
 https://github.com/acedemand/kubernetes-cluster
 
+
+### CNI
+Layer2 Switching
+layer3 Routing
+overlay networking
+
+```bash
+ps -ef | grep cni
+kubectl get svc -o wide -n kube-system | grep 10.19.240.10
+```
