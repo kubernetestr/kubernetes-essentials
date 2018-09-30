@@ -1,6 +1,6 @@
-#H3 Kubernetes Networking
+### Kubernetes Networking
 
-#H4 3-Tier
+#### 3-Tier
 
 Pod to Pod communication happens without NAT
 All Nodes communicate each other without NAT
