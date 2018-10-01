@@ -11,8 +11,8 @@ kubectl apply -f web-v2-svc.yaml
 kubectl apply -f web-v1-fixed.yaml
 kubectl apply -f web-v2-fixed.yaml
 kubectl get ingress web-ingress -o jsonpath="{.status.loadBalancer.ingress[*].ip}"
-curl -XGET http://$(kubectl get ingress color-ingress -o jsonpath="{.status.loadBalancer.ingress[*].ip}")/v1/
-curl -XGET http://$(kubectl get ingress color-ingress -o jsonpath="{.status.loadBalancer.ingress[*].ip}")/v2/
+curl -XGET http://$(kubectl get ingress web-ingress -o jsonpath="{.status.loadBalancer.ingress[*].ip}")/v1/
+curl -XGET http://$(kubectl get ingress web-ingress -o jsonpath="{.status.loadBalancer.ingress[*].ip}")/v2/
 ```
 
 
@@ -20,7 +20,7 @@ curl -XGET http://$(kubectl get ingress color-ingress -o jsonpath="{.status.load
 ```bash
 openssl genrsa -out ca.key 2048
 openssl req -x509 -new -nodes -key ca.key -subj \
-  "/CN=$(kubectl get ingress color-ingress \
+  "/CN=$(kubectl get ingress web-ingress \
    -o jsonpath="{.status.loadBalancer.ingress[*].ip}")" -days 10000 -out ca.crt
 kubectl create secret tls web-tls --key=ca.key --cert=ca.crt
 kubectl apply -f ingress-tls.yaml
@@ -40,6 +40,19 @@ spec:
 #force https
 kubectl apply -f ingress-tls-forcehttps.yaml
 ```
+
+####Cleanup
+```bash
+kubectl delete ingress web-ingress 
+kubectl delete deployment web-v1
+kubectl delete deployment web-v1
+kubectl delete svc web-v1
+kubectl delete svc web-v2
+kubectl delete secret web-tls
+```
+
+
+
 #### References
 1- https://github.com/kubernetes/ingress-gce
 
