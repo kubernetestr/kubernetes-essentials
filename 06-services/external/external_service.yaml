@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: database
+  name: simpleserver
 spec:
   ports:
-  - port: 1433
-    targetPort: 1433
+  - port: 8000
+    targetPort: 8000
     protocol: TCP
 ---
 # Because this service has no selector, the corresponding Endpoints
@@ -14,9 +14,9 @@ spec:
 kind: Endpoints
 apiVersion: v1
 metadata:
-  name: database
+  name: simpleserver
 subsets:
   - addresses:
-      - ip: "192.168.1.103"
+      - ip: "10.128.0.2"
     ports:
-      - port: 1433
+      - port: 8000

@@ -67,4 +67,14 @@ kubectl get endpoints -w
     port: 8080
     protocol: TCP
     targetPort: 8080
-```
+``
+
+```bash
+kubectl delete svc kuard
+kubectl expose deployment kuard  --type=LoadBalancer --dry-run=true -o yaml > kuard-dpl-svc-lb.yaml
+kubectl apply -f kuard-dpl-svc-lb.yaml
+
+#watch the external ip address
+kubectl get svc -w
+
+`
