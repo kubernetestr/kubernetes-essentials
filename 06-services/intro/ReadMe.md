@@ -78,3 +78,12 @@ kubectl apply -f kuard-dpl-svc-lb.yaml
 kubectl get svc -w
 
 `
+
+```bash
+#LoadBalancer InBalance problem
+#https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/
+
+kubectl apply -f kuard-dpl-svc-lb-onlylocal.yaml
+````
+
+
