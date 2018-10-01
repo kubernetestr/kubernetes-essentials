@@ -25,7 +25,7 @@ openssl req -x509 -new -nodes -key ca.key -subj \
 kubectl create secret tls web-tls --key=ca.key --cert=ca.crt
 kubectl apply -f ingress-tls.yaml
 #watch for changes in gcp console
-
+```
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
