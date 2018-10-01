@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: kuard
+  name: kuard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: kuard
+      internalVersion: 0.0.1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: kuard
+        internalVersion: 0.0.1
+    spec:
+      containers:
+      - image: gcr.io/kuar-demo/kuard-amd64:1
+        name: kuard
+        livenessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+          periodSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          timeoutSeconds: 1
+          periodSeconds: 10
+          initialDelaySeconds: 30
+status: {}

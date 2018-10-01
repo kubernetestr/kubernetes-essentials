@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    internalVersion: 0.0.1
+    name: kuard
+    run: kuard
+  name: kuard
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    internalVersion: 0.0.1
+    name: kuard
+    run: kuard
+  type: ClusterIP
+status:
+  loadBalancer: {}
