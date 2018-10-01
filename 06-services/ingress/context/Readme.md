@@ -19,7 +19,9 @@ curl -XGET http://$(kubectl get ingress color-ingress -o jsonpath="{.status.load
 #### Enable HTTPS
 ```bash
 openssl genrsa -out ca.key 2048
-openssl req -x509 -new -nodes -key ca.key -subj "/CN=$(kubectl get ingress color-ingress -o jsonpath="{.status.loadBalancer.ingress[*].ip}")" -days 10000 -out ca.crt
+openssl req -x509 -new -nodes -key ca.key -subj \
+  "/CN=$(kubectl get ingress color-ingress \
+   -o jsonpath="{.status.loadBalancer.ingress[*].ip}")" -days 10000 -out ca.crt
 kubectl create secret tls web-tls --key=ca.key --cert=ca.crt
 kubectl apply -f ingress-tls.yaml
 #watch for changes in gcp console
