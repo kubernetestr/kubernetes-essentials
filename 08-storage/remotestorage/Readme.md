@@ -20,12 +20,13 @@ kubectl delete pod test-pd
 ```
 
 ### rtfm
+```bash
 kubectl apply -f 01-2-gce-pd.yaml 
 kubectl scale deployment test-pd --replicas=2
 kubectl apply -f 01-3-gce-pd.yaml
 kubectl scale deployment test-pd --replicas 2
 kubectl delete -f 01-2-gce-pd.yaml 
-###
+```
 
 ### nfs server
 ```bash
