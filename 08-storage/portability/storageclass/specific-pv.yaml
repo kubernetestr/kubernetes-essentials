@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pvc-13619eda-d690-11e8-89dc-42010a9c0015
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: pvc-data1
+    namespace: default
+  gcePersistentDisk:
+    fsType: ext4
+    pdName: gke-meetup-a2eade41-dy-pvc-13619eda-d690-11e8-89dc-42010a9c0015
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: ssd

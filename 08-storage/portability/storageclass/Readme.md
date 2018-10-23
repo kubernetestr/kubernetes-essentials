@@ -60,4 +60,43 @@ reclaimPolicy: Retain
 volumeBindingMode: Immediate
 ```
 
+```bash
+kubectl delete -f storage-sdd.yaml
+kubectl apply -f storage-sdd-retain.yaml  
+kubectl delete -f 02-gcpd-pv-pvc.yaml 
+kubectl apply -f 02-gcpd-pv-pvc.yaml
+kubectl get pv
+kubectl delete -f 02-gcpd-pv-pvc.yaml
+kubectl get pv
+kubectl apply -f 02-gcpd-pv-pvc.yaml
+kubectl get pv
+kubectl get pvc
+```
+```yaml
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: ssd
+  volumeName: pvc-13619eda-d690-11e8-89dc-42010a9c0015
+status:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  phase: Bound
+```
+```bash
+kubectl get pvc pvc-data1 -o yaml > pvc-data-with-pv.yaml
+kubectl delete pvc pvc-data1
+kubectl get pv pvc-13619eda-d690-11e8-89dc-42010a9c0015 -o yaml > specific-pv.yaml
+kubectl delete pv kubectl get pv pvc-13619eda-d690-11e8-89dc-42010a9c0015 -o yaml > specific-pv.yaml
+kubectl delete pv pvc-13619eda-d690-11e8-89dc-42010a9c0015
+kubectl apply -f specific-pv.yaml
+kubectl apply -f pvc-data-with-pv.yaml
 
+```
+
+ 
