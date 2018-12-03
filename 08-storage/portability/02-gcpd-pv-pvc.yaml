@@ -7,7 +7,7 @@ spec:
     storage: 10Gi
   accessModes:
     - ReadWriteOnce
-  gcePersistnetDisk:
+  gcePersistentDisk:
     pdName: meetup-disk
     fsType: ext4
 

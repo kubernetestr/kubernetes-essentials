@@ -3,8 +3,6 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    internalVersion: 0.0.1
-    name: kuard
     run: kuard
   name: kuard
 spec:
@@ -14,8 +12,7 @@ spec:
     targetPort: 8080
   selector:
     internalVersion: 0.0.1
-    name: kuard
     run: kuard
-  type: ClusterIP
+  type: NodePort
 status:
   loadBalancer: {}
