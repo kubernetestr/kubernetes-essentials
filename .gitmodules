@@ -1,0 +1,3 @@
+[submodule "10-ks8-packaging/01-helm/02-prometheus/prometheus"]
+	path = 10-ks8-packaging/01-helm/02-prometheus/prometheus
+	url = https://github.com/Pamir/devfestistanbul2018
