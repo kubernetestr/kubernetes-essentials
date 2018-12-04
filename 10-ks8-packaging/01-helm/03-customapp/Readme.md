@@ -62,5 +62,21 @@ container:
 ports:
 - name: http
  containerPort: "{{ .Values.container.port}}"
-
+```
+```bash
+helm upgrade pn . -f values.yaml
+```
+Pretty cool features of helm </br>
+```bash
+helm lint .
+helm upgrade  pn . --dry-run=true --debug
+```
+Another if statement
+```yaml
+  terminationGrace: "enabled"
+  terminationGracePeriodSeconds: 60
+---
+{{ if eq .Values.container.terminationGrace  "enabled" }}
+      terminationGracePeriodSeconds: {{ .Values.container.terminationGracePeriodSeconds }}
+{{ end }}
 ```
