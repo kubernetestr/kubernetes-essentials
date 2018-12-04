@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "k8s-app.fullname" . }}
+  labels:
+    app: {{ template "k8s-app.name" . }}
+    chart: {{ template "k8s-app.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "k8s-app.name" . }}
+    release: {{ .Release.Name }}
